@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_test_content_provider"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.merpyzf.reviewandroid.activity.TestContentProviderActivity">
+
+    <EditText
+        android:id="@+id/edt_park"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="查询停车场车位空余:"
+        />
+
+
+    <TextView
+
+        android:id="@+id/tv_show_usable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+
+        />
+
+    <Button
+        android:id="@+id/btn_serach"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text = "查询"
+        />
+
+</LinearLayout>

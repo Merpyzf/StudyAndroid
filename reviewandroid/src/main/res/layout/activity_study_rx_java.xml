@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="1.RxJava的第一个HelloWorld"
+        android:onClick="clickHelloWorld"
+        />
+
+
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="2.使用Just(T…)方法创建事件队列"
+        android:onClick="clickJust"
+        />
+
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="3.Consumer作为观察者只关心onNext事件"
+        android:onClick="clickConsumer"
+        />
+
+    <Button
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="4.RxJava线程使用"
+        android:onClick="clickThread"
+        />
+
+
+
+
+</LinearLayout>

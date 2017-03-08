@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@mipmap/ic_launcher"
+        android:id="@+id/action_1"
+        android:title="菜单1"
+        android:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource"></item>
+
+</menu>

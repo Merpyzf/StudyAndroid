@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.merpyzf.reviewandroid.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="补间动画"
+            android:textSize="20sp"
+            android:onClick="clickTweenAnimation"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="属性动画"
+            android:textSize="20sp"
+            android:onClick="clickPropertyAnimation"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ValueAnimator高级用法"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:onClick="clickValueAnimator"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TouchEvent滑动返回"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickTouchEvent"
+            />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GestureDetector使用"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickGestureDetector"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickIntent"
+            android:text="启动系统相机"
+
+            android:id="@+id/button3" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickPhotoAlbum"
+            android:text="启动系统相册"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickFragment"
+            android:text="Fragment生命周期相关"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickOnTouch"
+            android:text="onTouch()和onTouchEvent()的区别"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickImplicitIntent"
+            android:text="隐式意图"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickAsyncTask"
+            android:text="AsyncTask的使用"
+
+            />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickScaleImage"
+            android:text="图片自适应ImageView"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickSQLite"
+            android:text="SQLite数据库使用"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickReadSms"
+            android:text="读取手机短信"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickReadContacts"
+            android:text="获取手机联系人"
+
+            />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="ObserverSms"
+            android:text="监听短信到来并获取短信内容"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickSMS"
+            android:text="监听短信识别验证码"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickAssets"
+            android:text="获取Assets目录中的文件"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickProvider"
+            android:text="测试内容提供者"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickAd"
+            android:text="ActionBar+DrawerLayout使用"
+
+            />
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickParams"
+            android:text="LayoutParams的使用"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickViewPagerLoop"
+            android:text="ViewPager轮询图"
+
+            />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickViewPagerLoop1"
+            android:text="ViewPager轮询图+1"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickViewPagerLoop2"
+            android:text="ViewPager轮询图+2"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickSmsReceiver"
+            android:text="使用广播监听短信到来并获取验证码"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickStudyUI"
+            android:text="基础控件的使用"
+            />
+
+
+
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickViewSnake"
+            android:text="贪吃蛇"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickContentObserver"
+            android:text="ContentObserver"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickAboutActivity"
+            android:text="Activity相关"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickSql"
+            android:text="Sql语句练习"
+
+            />
+
+          <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickShowPopupWindow"
+            android:text="PopupWindow "
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickDouban"
+            android:text="豆瓣电影Top250 "
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickBaseWidget"
+            android:text="基础控件"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickRxJava"
+            android:text="RxJava学习"
+
+            />
+
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

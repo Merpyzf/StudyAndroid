@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_implicit_intent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.merpyzf.reviewandroid.activity.ImplicitIntentActivity">
+
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickActivity"
+        android:text="使用隐式intent开启activity"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="调用浏览器"
+        android:textAllCaps="false"
+        android:onClick="clickBroswer"
+        />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickPlayMusic"
+        android:text="播放音乐"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="调用拨打电话"
+        android:textAllCaps="false"
+        android:onClick="clickCall"
+        android:id="@+id/button2" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="直接拨打电话"
+        android:textAllCaps="false"
+        android:onClick="clickCallPhone"
+        android:id="@+id/button" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickSend"
+        android:text="发送短信"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickSendMsg"
+        android:text="直接发送短信"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="查看并获取联系人电话"
+        android:textAllCaps="false"
+        android:onClick="clickGetPhoneNumber"
+        />
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="查看并获取联系人电话2"
+        android:textAllCaps="false"
+        android:onClick="clickGetPhoneNumber2"
+        />
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

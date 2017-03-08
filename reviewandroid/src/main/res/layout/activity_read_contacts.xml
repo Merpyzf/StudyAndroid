@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_read_contacts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.merpyzf.reviewandroid.activity.ReadContactsActivity">
+
+    <Button
+        android:text="读取联系人Test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickQuery"
+        />
+
+    <Button
+
+    android:text="读取联系人Test2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:onClick="clickQuery2"
+
+    />
+
+    <Button
+
+        android:text="插入一条联系人的信息Test1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickInsert"
+
+        />
+
+
+    <Button
+
+        android:text="MediaStore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickMediaStore"
+        android:textAllCaps="false"
+
+
+
+
+        />
+
+
+
+</LinearLayout>
