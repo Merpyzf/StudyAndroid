@@ -238,6 +238,9 @@ public class ImplicitIntentActivity extends AppCompatActivity {
                 cursor1.moveToFirst();
 
 
+
+
+
                 //获取联系人的id
                 String contactsId1 = cursor1.getString(cursor1.getColumnIndex(ContactsContract.Contacts._ID));
 
@@ -261,8 +264,6 @@ public class ImplicitIntentActivity extends AppCompatActivity {
 
 
                 break;
-
-
         }
 
     }

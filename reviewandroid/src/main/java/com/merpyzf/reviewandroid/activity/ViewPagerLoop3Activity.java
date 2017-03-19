@@ -98,8 +98,6 @@ public class ViewPagerLoop3Activity extends AppCompatActivity {
 
 
 
-
-
                     params.leftMargin  = left;
 
 

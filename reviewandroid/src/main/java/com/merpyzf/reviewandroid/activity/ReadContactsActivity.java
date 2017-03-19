@@ -45,40 +45,37 @@ public class ReadContactsActivity extends AppCompatActivity {
 
         Cursor cursor = getContentResolver().query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
 
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()){
 
 
-            //获取联系人对应的id
+            //获取联系人的Id
             String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
 
-            //获取联系人对应的name
             String name = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
 
-            //查询联系人的电话号码
+
+            Cursor cursor_phone_num = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,id+"="+ContactsContract.CommonDataKinds.Phone._ID, null, null);
 
 
-            Cursor cursor_phoneNum = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, id + "=" + ContactsContract.CommonDataKinds.Phone._ID, null, null);
-
-            while (cursor_phoneNum.moveToNext()){
+            while (cursor_phone_num.moveToNext()){
 
 
+                //查询电话信息
+                String phone_num = cursor_phone_num.getString(cursor_phone_num.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-                String phone = cursor_phoneNum.getString(cursor_phoneNum.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                Log.i("wk","id =>"+id+"name =>"+name+"phone =>"+phone);
+
+                Log.i("wk","联系人Id: "+id+"姓名: "+name+"电话号码: "+phone_num);
+
 
             }
 
 
 
-
-
-            cursor_phoneNum.close();
-
-
-
         }
 
-        cursor.close();
+
+
+
 
 
 

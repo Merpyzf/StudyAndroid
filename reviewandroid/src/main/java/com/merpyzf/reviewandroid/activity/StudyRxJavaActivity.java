@@ -10,13 +10,19 @@ import android.widget.Toast;
 import com.merpyzf.reviewandroid.R;
 import com.merpyzf.reviewandroid.utils.httpUtils.HttpHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.internal.operators.observable.ObservableError;
 import io.reactivex.schedulers.Schedulers;
 
@@ -284,6 +290,110 @@ public class StudyRxJavaActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     *
+     * RxJava变换操作符Map的使用
+     *
+     * @param v
+     */
+    public void clickMap(View v){
+
+        /**
+         * map RxJava中最简单的变换操作符，作用：对被观察者发送的内一个事件应用一个函数，
+         * 使得每一个事件都按照指定的函数去变化。
+         *
+         * 下面为示例：
+         */
+
+
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                e.onNext(1);
+                e.onNext(2);
+                e.onNext(3);
+
+            }
+        }).map(new Function<Integer, String>() {
+            @Override
+            public String apply(Integer integer) throws Exception {
+
+
+                return "我变成字符串了 "+integer.toString();
+
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+
+                Log.i("wk","从被观察者中拿到的事件:"+s);
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+    }
+
+
+    /**
+     * FlatMap的使用
+     *
+     *  将一个发送事件的被观察者变换为多个发送事件的被观察者，然后将它们
+     *  发射的事件合并后放进一个单独的Observable中
+     *
+     *
+     *
+     * @param v
+     */
+    public void clickFlatMap(View v){
+
+
+
+        Observable.create(new ObservableOnSubscribe<Integer>() {
+            @Override
+            public void subscribe(ObservableEmitter<Integer> e) throws Exception {
+                e.onNext(1);
+                e.onNext(2);
+                e.onNext(3);
+            }
+        }).flatMap(new Function<Integer, ObservableSource<String>>() {
+            @Override
+            public ObservableSource<String> apply(Integer integer) throws Exception {
+
+                List<String> list = new ArrayList<String>();
+
+                for(int i=0;i<3;i++){
+
+                    list.add("I am value "+integer);
+
+                }
+
+                return Observable.fromIterable(list).delay(100, TimeUnit.MILLISECONDS);
+
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(String s) throws Exception {
+
+                Log.i("wk",s);
+
+
+            }
+        });
+
+
+
+
+
+    }
 
 }
 

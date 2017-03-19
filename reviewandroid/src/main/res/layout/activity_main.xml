@@ -273,6 +273,17 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAllCaps="false"
+            android:onClick="clickFrameByFrame"
+            android:text="逐帧动画的使用"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
             android:onClick="clickSmsReceiver"
             android:text="使用广播监听短信到来并获取验证码"
             />
@@ -344,6 +355,16 @@
 
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickDialog"
+            android:text="AlertDialog"
+
+            />
+
 
         <Button
             android:layout_width="match_parent"
@@ -371,10 +392,34 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAllCaps="false"
+            android:onClick="clickViewDragHelpe"
+            android:text="ViewDragHelper的使用"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickScroll"
+            android:text="ScrollTo/ScrollBy"
+
+            />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
             android:onClick="clickRxJava"
             android:text="RxJava学习"
 
             />
+
+
 
 
 

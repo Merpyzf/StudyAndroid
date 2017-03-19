@@ -46,5 +46,16 @@
 
 
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="选择图库中的图片并返回"
+        android:onClick="clickImage"
+        />
+
+
+
+
 
 </LinearLayout>

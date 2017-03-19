@@ -98,7 +98,15 @@
         <activity android:name=".activity.SmsReceiverActivity" />
         <activity android:name=".activity.StudyUiActivity" />
         <activity android:name=".activity.StudyBaseWidgetActivity" />
-        <activity android:name=".activity.StudyRxJavaActivity"></activity>
+        <activity android:name=".activity.StudyRxJavaActivity" />
+        <activity android:name=".activity.FrameByFrameActivity" />
+        <activity android:name=".activity.SoundpoolActivity" />
+        <activity android:name=".activity.ItemSlidingListViewActivity" />
+        <activity
+            android:name=".activity.ScrollingActivity"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.ScrollActivity"></activity>
     </application>
 
 </manifest>

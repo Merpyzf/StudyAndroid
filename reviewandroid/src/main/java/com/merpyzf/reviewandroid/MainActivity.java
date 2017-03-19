@@ -1,8 +1,10 @@
 package com.merpyzf.reviewandroid;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -10,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,8 +24,10 @@ import com.merpyzf.reviewandroid.activity.AssetsActivity;
 import com.merpyzf.reviewandroid.activity.AsyncTaskActivity;
 import com.merpyzf.reviewandroid.activity.ContentObserverActivity;
 import com.merpyzf.reviewandroid.activity.DouBanMovieActivity;
+import com.merpyzf.reviewandroid.activity.FrameByFrameActivity;
 import com.merpyzf.reviewandroid.activity.GestureDetectorActivity;
 import com.merpyzf.reviewandroid.activity.ImplicitIntentActivity;
+import com.merpyzf.reviewandroid.activity.ItemSlidingListViewActivity;
 import com.merpyzf.reviewandroid.activity.ObserverSmsActivity;
 import com.merpyzf.reviewandroid.activity.OnTouchActivity;
 import com.merpyzf.reviewandroid.activity.OpenCamearActivity;
@@ -31,6 +37,7 @@ import com.merpyzf.reviewandroid.activity.ReadContactsActivity;
 import com.merpyzf.reviewandroid.activity.ReadSmsActivity;
 import com.merpyzf.reviewandroid.activity.SQLiteActivity;
 import com.merpyzf.reviewandroid.activity.ScaleImageActivity;
+import com.merpyzf.reviewandroid.activity.ScrollActivity;
 import com.merpyzf.reviewandroid.activity.SmsReceiverActivity;
 import com.merpyzf.reviewandroid.activity.SmsVerificationCodeActivity;
 import com.merpyzf.reviewandroid.activity.StudyBaseWidgetActivity;
@@ -424,6 +431,65 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    public void clickDialog(View v){
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("这是一个提示的标题");
+        builder.setMessage("我是一个内容");
+
+
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                Toast.makeText(MainActivity.this,"取消",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        builder.setNeutralButton("忽略", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                Toast.makeText(MainActivity.this,"忽略",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        AlertDialog alertDialog = builder.create();
+
+
+        //实现提示窗体透明的代码
+
+        Window window = alertDialog.getWindow();
+
+        WindowManager.LayoutParams attributes = window.getAttributes();
+
+        attributes.alpha = 0.6f;
+
+        window.setAttributes(attributes);
+
+        alertDialog.show();
+
+    }
+
+
+
+
+
+
     /**
      * 显示PopupWindow
      */
@@ -507,11 +573,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    public void clickFrameByFrame(View v){
+
+
+
+        startActivity(new Intent(this, FrameByFrameActivity.class));
+
+
+
+
+    }
+
+
     public void clickRxJava(View v){
 
         startActivity(new Intent(this, StudyRxJavaActivity.class));
 
     }
+
+
+
+    public void clickViewDragHelpe(View v){
+
+
+        startActivity(new Intent(this, ItemSlidingListViewActivity.class));
+
+
+
+    }
+
+
+    public void clickScroll(View v){
+
+        startActivity(new Intent(this, ScrollActivity.class));
+
+
+    }
+
 
 
 
