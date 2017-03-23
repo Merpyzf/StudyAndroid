@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.merpyzf.reviewandroid.R;
 
+
 /**
  * ActionBar+DrawerLayout的使用
  */
@@ -22,13 +23,18 @@ public class AdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ad);
 
+
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         InitActionBar();
 
+
     }
 
     private void InitActionBar() {
+
+
 
 
         ActionBar actionBar = getSupportActionBar();

@@ -1,9 +1,17 @@
 package com.merpyzf.reviewandroid;
 
+import android.Manifest;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +31,7 @@ import com.merpyzf.reviewandroid.activity.AboutActivity;
 import com.merpyzf.reviewandroid.activity.AdActivity;
 import com.merpyzf.reviewandroid.activity.AssetsActivity;
 import com.merpyzf.reviewandroid.activity.AsyncTaskActivity;
+import com.merpyzf.reviewandroid.activity.CaptureScreenActivity;
 import com.merpyzf.reviewandroid.activity.ContentObserverActivity;
 import com.merpyzf.reviewandroid.activity.DouBanMovieActivity;
 import com.merpyzf.reviewandroid.activity.FrameByFrameActivity;
@@ -38,11 +48,15 @@ import com.merpyzf.reviewandroid.activity.ReadSmsActivity;
 import com.merpyzf.reviewandroid.activity.SQLiteActivity;
 import com.merpyzf.reviewandroid.activity.ScaleImageActivity;
 import com.merpyzf.reviewandroid.activity.ScrollActivity;
+import com.merpyzf.reviewandroid.activity.ShowChartActivity;
 import com.merpyzf.reviewandroid.activity.SmsReceiverActivity;
 import com.merpyzf.reviewandroid.activity.SmsVerificationCodeActivity;
 import com.merpyzf.reviewandroid.activity.StudyBaseWidgetActivity;
 import com.merpyzf.reviewandroid.activity.StudyFragmentActivity;
+import com.merpyzf.reviewandroid.activity.StudyGsonActivity;
+import com.merpyzf.reviewandroid.activity.StudyFileActivity;
 import com.merpyzf.reviewandroid.activity.StudyRxJavaActivity;
+import com.merpyzf.reviewandroid.activity.StudyServiceActivity;
 import com.merpyzf.reviewandroid.activity.StudyUiActivity;
 import com.merpyzf.reviewandroid.activity.Test2ViewPagerLoopActivity;
 import com.merpyzf.reviewandroid.activity.TestContentProviderActivity;
@@ -50,28 +64,100 @@ import com.merpyzf.reviewandroid.activity.TestSqlActivity;
 import com.merpyzf.reviewandroid.activity.TouchEventActivity;
 import com.merpyzf.reviewandroid.activity.TweenAnimationActivity;
 import com.merpyzf.reviewandroid.activity.UseValueAnimatorActivity;
+import com.merpyzf.reviewandroid.activity.VideoViewActivity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoop3Activity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoopActivity;
 import com.merpyzf.reviewandroid.game.SnakeActivity;
 import com.merpyzf.reviewandroid.receiver.ScreenReceiver;
+import com.merpyzf.reviewandroid.receiver.Sms2Receiver;
+import com.merpyzf.reviewandroid.service.NotificationService;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private ScreenReceiver screenReceiver;
+
+    private LinearLayout ll_content;
+    private NotificationService.MyBindler bindler;
+    private Intent intent;
+    private MyConn mConn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ll_content = (LinearLayout) findViewById(R.id.ll_content);
 
 
         //对于一些频繁触发的事件，需要在代码中进行动态注册
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.SCREEN_ON");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
-        registerReceiver(new ScreenReceiver(), intentFilter);
+
+        screenReceiver = new ScreenReceiver();
+        registerReceiver(screenReceiver, intentFilter);
+
+
+        //Bind用于后台Notification的Service
+        Intent  intent = new Intent(this, NotificationService.class);
+        mConn = new MyConn();
+        bindService(intent,mConn, Context.BIND_AUTO_CREATE);
+
+
+
+        /*
+            动态申请权限
+         */
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)!= PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.RECEIVE_SMS},0);
+
+        }else {
+
+            //如果已经有接收短信的权限则动态注册短信到来的广播
+
+            IntentFilter intentFilterSms = new IntentFilter();
+            intentFilterSms.addAction("android.provider.Telephony.SMS_RECEIVED");
+            registerReceiver(new Sms2Receiver(),intentFilterSms);
+
+        }
+
 
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch (requestCode){
+
+            case 0:
+
+                if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+
+
+                    IntentFilter intentFilterSms = new IntentFilter();
+                    intentFilterSms.addAction("android.provider.Telephony.SMS_RECEIVED");
+                    registerReceiver(new Sms2Receiver(),intentFilterSms);
+
+                }else {
+
+                    Toast.makeText(this,"权限被拒绝",Toast.LENGTH_SHORT).show();
+
+
+
+                }
+
+
+                break;
+
+
+        }
+
+
+
+    }
+
 
 
     //补间动画的使用学习
@@ -613,8 +699,120 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    public void clickCustomView(View v){
+
+        startActivity(new Intent(this, CustomViewActivity.class));
 
 
+
+    }
+
+
+    public void clickStudyService(View v){
+
+        startActivity(new Intent(this, StudyServiceActivity.class));
+
+    }
+
+    public void clickVideoView(View v){
+
+        startActivity(new Intent(this, VideoViewActivity.class));
+
+    }
+
+
+    /**
+     * 录音使用学习
+     * @param v
+     */
+    public void clickMediaRecorder(View v){
+
+
+
+
+    }
+
+    /**
+     * 绘制折线图
+     * @param v
+     */
+    public void clickLineChartView(View v){
+
+
+        startActivity(new Intent(this, ShowChartActivity.class));
+
+    }
+
+    /**
+     * 测试截取当前屏幕
+     * @param v
+     */
+    public void clickCaptureScreen(View v){
+
+        startActivity(new Intent(this, CaptureScreenActivity.class));
+
+    }
+
+
+    /**
+     * Gson的使用
+     * @param v
+     */
+    public void clickGson(View v){
+
+
+        startActivity(new Intent(this,StudyGsonActivity.class));
+
+
+    }
+
+
+    /**
+     * 在Activity中调用Service中的Notification
+     * @param v
+     */
+    public void clickNotification(View v){
+
+
+
+        if(bindler!=null) {
+
+            bindler.callNotification();
+        }
+
+    }
+
+
+    public void clickFile(View v){
+
+
+        startActivity(new Intent(this, StudyFileActivity.class));
+
+
+
+    }
+
+
+
+    /**
+     * 实现ServiceConnection接口，用于BindService
+     */
+    class MyConn implements ServiceConnection {
+
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+
+            bindler = (NotificationService.MyBindler) service;
+
+
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+
+        }
+    }
 
 
 
@@ -647,5 +845,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(screenReceiver);
+        //解除绑定Service
+        unbindService(mConn);
     }
 }

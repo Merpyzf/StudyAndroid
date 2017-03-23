@@ -46,6 +46,12 @@ public class DouBanMovieActivity extends AppCompatActivity {
         listView_movie.setAdapter(adapter);
 
 
+
+
+
+
+
+
         listView_movie.setOnLoadingListener(new PagingListView.onLoadingListener() {
             @Override
             public void onLoading() {
@@ -60,9 +66,19 @@ public class DouBanMovieActivity extends AppCompatActivity {
 
                         parseJson(htmlDoc);
 
+                        /*
+                            使用下面方法更新ListView的数据时，必须保证传入Adapter的数据集合是同一个而不能是其他对象，否则无法实现数据的更新
+                         */
                         adapter.notifyDataSetChanged();
                         listView_movie.setLoadingComplete();
 
+                        //设置ListView要显示在第几个Item,移动瞬时完成
+//                        listView_movie.setSelection(10);
+
+                        //带有动画的listView的移动,要移动的距离，完成这段移动所需的时间
+//                        listView_movie.smoothScrollBy(800,2000);
+
+                        listView_movie.smoothScrollByOffset(40);
 
 
                     }

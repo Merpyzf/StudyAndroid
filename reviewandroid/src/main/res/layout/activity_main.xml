@@ -7,6 +7,7 @@
     tools:context="com.merpyzf.reviewandroid.MainActivity">
 
     <LinearLayout
+        android:id="@+id/ll_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -408,6 +409,85 @@
             />
 
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickCustomView"
+            android:text="自定义View系列"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickGson"
+            android:text="Gson使用"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickStudyService"
+            android:text="Service使用"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickVideoView"
+            android:text="VideoView使用"
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickLineChartView"
+            android:text="自定义View绘制折线图"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickNotification"
+            android:text="Notification的使用"
+            />
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickFile"
+            android:text="文件操作"
+            />
+
+
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMediaRecorder"
+            android:text="MediaRecorder使用"
+            />
 
         <Button
             android:layout_width="match_parent"
