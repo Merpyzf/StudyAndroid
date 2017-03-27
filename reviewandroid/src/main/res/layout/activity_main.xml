@@ -476,8 +476,24 @@
             />
 
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickSaveImage"
+            android:text="保存图片+截取当前屏幕"
+            />
 
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickCodeLayout"
+            android:text="使用代码进行布局"
+            />
 
 
         <Button
@@ -498,9 +514,6 @@
             android:text="RxJava学习"
 
             />
-
-
-
 
 
 

@@ -10,6 +10,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- 授权程序访问振动器的权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -127,7 +129,20 @@
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.ShowChartActivity" />
         <activity android:name=".activity.CaptureScreenActivity" />
-        <activity android:name=".activity.StudyFileActivity"></activity>
+        <activity android:name=".activity.StudyFileActivity" />
+        <activity android:name=".activity.SaveImageActivity" />
+
+        <receiver
+            android:name=".receiver.NetStatusReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".activity.CodeLayoutActivity"></activity>
     </application>
 
 </manifest>

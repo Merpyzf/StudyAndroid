@@ -2,6 +2,8 @@ package com.merpyzf.reviewandroid.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -94,20 +96,104 @@ public class StudyFileActivity extends AppCompatActivity {
 
             Log.i("wk",file.getPath()+"目录存在");
 
+            //获取当前目录的可用空间大小
             long usableSpace = Environment.getExternalStorageDirectory().getUsableSpace();
 
+            //获取当前目录空间的总大小
             long totalSpace = Environment.getExternalStorageDirectory().getTotalSpace();
 
-            String usableSpace_str = Formatter.formatShortFileSize(this, usableSpace);
+            //使用Formatter.formatShortFileSize(this, usableSpace) 从 long 转换成 m
+            String usableSpace_str = Formatter.formatFileSize(this, usableSpace);
             String totalSpace_str = Formatter.formatFileSize(this,totalSpace);
-
 
             Log.i("wk","外部存储可用空间:"+usableSpace_str+"外部存储的总大小:"+totalSpace_str);
 
 
+
+
+
+
+            try {
+
+                /**
+                 * 构造九九乘法表写入文件中
+                 *
+                 */
+                StringBuffer sb = new StringBuffer();
+
+                for(int i=1;i<9;i++){
+
+                    for(int j=1;j<=i;j++){
+
+
+                        sb.append(j+" * "+i+" = "+i*j);
+
+
+                    }
+
+                    //换行
+                    sb.append("\n");
+
+                }
+
+                File file1 = new File(file, "99乘法表1.txt");
+                FileOutputStream fos1 = new FileOutputStream(file1);
+                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(fos1));
+
+                writer.write(sb.toString());
+
+                writer.flush();
+
+                writer.close();
+
+                /*
+
+                从文件中将九九乘法表读出来
+                 */
+
+
+                FileInputStream is = new FileInputStream(file1);
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+
+                StringBuffer sb1 = new StringBuffer();
+
+                String line = null;
+
+                while((line =reader.readLine())!=null){
+
+
+                    sb1.append(line);
+
+                }
+
+                String[] split = sb.toString().split("\n");
+
+                for(String s:split){
+
+
+                    Log.i("wk",s+"");
+
+                }
+
+
+                reader.close();
+                is.close();
+
+
+                Bitmap bm = BitmapFactory.decodeStream(getAssets().open("girl.jpg"));
+                //将bitmap保存到本地的代码
+                bm.compress(Bitmap.CompressFormat.PNG,100,new FileOutputStream(new File(file,"girl1.png")));
+
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+            }
+
+
         }else {
-
-
             /**
              *
              * mkdir与mkdirs的区别:
@@ -117,6 +203,8 @@ public class StudyFileActivity extends AppCompatActivity {
              *
              */
             Log.i("wk","不存在");
+
+            //进行子目录的创建
             boolean b = file.mkdir();
 
             if(b) {

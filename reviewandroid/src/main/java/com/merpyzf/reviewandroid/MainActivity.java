@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -32,6 +33,7 @@ import com.merpyzf.reviewandroid.activity.AdActivity;
 import com.merpyzf.reviewandroid.activity.AssetsActivity;
 import com.merpyzf.reviewandroid.activity.AsyncTaskActivity;
 import com.merpyzf.reviewandroid.activity.CaptureScreenActivity;
+import com.merpyzf.reviewandroid.activity.CodeLayoutActivity;
 import com.merpyzf.reviewandroid.activity.ContentObserverActivity;
 import com.merpyzf.reviewandroid.activity.DouBanMovieActivity;
 import com.merpyzf.reviewandroid.activity.FrameByFrameActivity;
@@ -46,15 +48,16 @@ import com.merpyzf.reviewandroid.activity.PropertyAnimationActivity;
 import com.merpyzf.reviewandroid.activity.ReadContactsActivity;
 import com.merpyzf.reviewandroid.activity.ReadSmsActivity;
 import com.merpyzf.reviewandroid.activity.SQLiteActivity;
+import com.merpyzf.reviewandroid.activity.SaveImageActivity;
 import com.merpyzf.reviewandroid.activity.ScaleImageActivity;
 import com.merpyzf.reviewandroid.activity.ScrollActivity;
 import com.merpyzf.reviewandroid.activity.ShowChartActivity;
 import com.merpyzf.reviewandroid.activity.SmsReceiverActivity;
 import com.merpyzf.reviewandroid.activity.SmsVerificationCodeActivity;
 import com.merpyzf.reviewandroid.activity.StudyBaseWidgetActivity;
+import com.merpyzf.reviewandroid.activity.StudyFileActivity;
 import com.merpyzf.reviewandroid.activity.StudyFragmentActivity;
 import com.merpyzf.reviewandroid.activity.StudyGsonActivity;
-import com.merpyzf.reviewandroid.activity.StudyFileActivity;
 import com.merpyzf.reviewandroid.activity.StudyRxJavaActivity;
 import com.merpyzf.reviewandroid.activity.StudyServiceActivity;
 import com.merpyzf.reviewandroid.activity.StudyUiActivity;
@@ -102,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
         Intent  intent = new Intent(this, NotificationService.class);
         mConn = new MyConn();
         bindService(intent,mConn, Context.BIND_AUTO_CREATE);
+
+        /**
+         * 设置当前Activity只能竖屏，而不能进行横竖屏切换
+         */
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
 
@@ -791,6 +799,32 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    /**
+     * 长按ImageView进行图片保存+截取当前手机的屏幕
+     * @param v
+     */
+    public void clickSaveImage(View v){
+
+        startActivity(new Intent(this, SaveImageActivity.class));
+
+    }
+
+
+
+
+
+    public void clickCodeLayout(View v){
+
+
+        startActivity(new Intent(this, CodeLayoutActivity.class));
+
+    }
+
+
+
+
 
 
 
