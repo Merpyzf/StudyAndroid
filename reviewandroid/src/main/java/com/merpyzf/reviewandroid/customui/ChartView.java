@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
@@ -204,11 +205,26 @@ public class ChartView extends View {
 
             canvas.drawLine(lastX,lastY,x,y,mLinePaint);
 
+            Path path = new Path();
+
+            path.moveTo(lastX,lastY);
+
+            int wt = (int) ((lastX+x)/2);
+
+            path.quadTo(wt,lastY,x,y);
+
+            canvas.drawPath(path,mLinePaint);
+
+
+
             canvas.drawCircle(x,y,6,mPointPaint);
 
             Rect rect = new Rect();
 
             mTextPaint.getTextBounds("("+mPoints.get(i).x+","+mPoints.get(i).y+")",0,1,rect);
+
+
+
 
             canvas.drawText("("+mPoints.get(i).x+","+mPoints.get(i).y+")",x-(rect.width()*6),y,mTextPaint);
 
@@ -300,7 +316,7 @@ public class ChartView extends View {
 
         //用于绘制线的Paint
         mLinePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mLinePaint.setStyle(Paint.Style.FILL);
+        mLinePaint.setStyle(Paint.Style.STROKE);
         mCsPaint.setStrokeWidth(4);
         mLinePaint.setColor(Color.BLACK);
 

@@ -515,6 +515,17 @@
 
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickGraph"
+            android:text="曲线图绘制"
+
+            />
+
+
 
 
 

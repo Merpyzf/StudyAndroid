@@ -27,11 +27,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".activity.TweenAnimationActivity" />
 
@@ -142,7 +138,18 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".activity.CodeLayoutActivity"></activity>
+        <activity android:name=".activity.CodeLayoutActivity" />
+        <activity android:name=".activity.GraphActivity" />
+        <activity android:name=".activity.SecondBezierActivity" />
+        <activity android:name=".activity.GraphChartActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>

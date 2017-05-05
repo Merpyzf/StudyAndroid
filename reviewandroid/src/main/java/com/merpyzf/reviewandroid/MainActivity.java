@@ -38,6 +38,7 @@ import com.merpyzf.reviewandroid.activity.ContentObserverActivity;
 import com.merpyzf.reviewandroid.activity.DouBanMovieActivity;
 import com.merpyzf.reviewandroid.activity.FrameByFrameActivity;
 import com.merpyzf.reviewandroid.activity.GestureDetectorActivity;
+import com.merpyzf.reviewandroid.activity.GraphActivity;
 import com.merpyzf.reviewandroid.activity.ImplicitIntentActivity;
 import com.merpyzf.reviewandroid.activity.ItemSlidingListViewActivity;
 import com.merpyzf.reviewandroid.activity.ObserverSmsActivity;
@@ -822,6 +823,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    public void clickGraph(View v){
+
+        startActivity(new Intent(this, GraphActivity.class));
+
+    }
 
 
 
