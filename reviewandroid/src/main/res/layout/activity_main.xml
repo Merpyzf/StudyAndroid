@@ -526,6 +526,51 @@
             />
 
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickAllSensor"
+            android:text="查看传感器"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickBitMapSize"
+            android:text="获取图片的尺寸"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickCopyBitMap"
+            android:text="拷贝原图副本"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickLocation"
+            android:text="定位"
+
+            />
+
+
+
+
 
 
 

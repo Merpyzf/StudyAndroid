@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
@@ -35,12 +36,14 @@ import com.merpyzf.reviewandroid.activity.AsyncTaskActivity;
 import com.merpyzf.reviewandroid.activity.CaptureScreenActivity;
 import com.merpyzf.reviewandroid.activity.CodeLayoutActivity;
 import com.merpyzf.reviewandroid.activity.ContentObserverActivity;
+import com.merpyzf.reviewandroid.activity.CopyBitMapActivity;
 import com.merpyzf.reviewandroid.activity.DouBanMovieActivity;
 import com.merpyzf.reviewandroid.activity.FrameByFrameActivity;
 import com.merpyzf.reviewandroid.activity.GestureDetectorActivity;
 import com.merpyzf.reviewandroid.activity.GraphActivity;
 import com.merpyzf.reviewandroid.activity.ImplicitIntentActivity;
 import com.merpyzf.reviewandroid.activity.ItemSlidingListViewActivity;
+import com.merpyzf.reviewandroid.activity.LocationActivity;
 import com.merpyzf.reviewandroid.activity.ObserverSmsActivity;
 import com.merpyzf.reviewandroid.activity.OnTouchActivity;
 import com.merpyzf.reviewandroid.activity.OpenCamearActivity;
@@ -52,6 +55,7 @@ import com.merpyzf.reviewandroid.activity.SQLiteActivity;
 import com.merpyzf.reviewandroid.activity.SaveImageActivity;
 import com.merpyzf.reviewandroid.activity.ScaleImageActivity;
 import com.merpyzf.reviewandroid.activity.ScrollActivity;
+import com.merpyzf.reviewandroid.activity.ShowAllSensorsActivity;
 import com.merpyzf.reviewandroid.activity.ShowChartActivity;
 import com.merpyzf.reviewandroid.activity.SmsReceiverActivity;
 import com.merpyzf.reviewandroid.activity.SmsVerificationCodeActivity;
@@ -828,9 +832,60 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(new Intent(this, GraphActivity.class));
 
+        WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
+        int screenWidth = wm.getDefaultDisplay().getWidth();
+        int screenHeight = wm.getDefaultDisplay().getHeight();
+        Log.i("wk","屏幕的宽度:"+screenWidth+"屏幕的高度:"+screenHeight);
+
+
     }
 
 
+    public void clickAllSensor(View v){
+
+        startActivity(new Intent(this, ShowAllSensorsActivity.class));
+
+    }
+
+    /**
+     * 获取图片的尺寸
+     * @param v
+     */
+    public void clickBitMapSize(View v){
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        BitmapFactory.decodeResource(getResources(),R.drawable.ico,options);
+
+        //获取图片的宽高
+        int height = options.outHeight;
+        int width = options.outWidth;
+
+        Log.i("wk","图片的宽度:"+width+"图片的高度:"+height);
+
+
+    }
+
+    /**
+     * 拷贝原图的副本
+     * @param v
+     */
+    public void clickCopyBitMap(View v){
+
+
+        startActivity(new Intent(this, CopyBitMapActivity.class));
+
+    }
+
+
+    /**
+     * 定位api的使用
+     * @param v
+     */
+    public void clickLocation(View v){
+
+        startActivity(new Intent(this, LocationActivity.class));
+
+    }
 
 
 
@@ -887,6 +942,8 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
+
+
 
 
 

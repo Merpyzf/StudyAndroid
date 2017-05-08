@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.merpyzf.reviewandroid">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -12,6 +13,8 @@
     <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <!-- 授权程序访问振动器的权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -27,7 +30,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activity.TweenAnimationActivity" />
 
@@ -141,15 +148,10 @@
         <activity android:name=".activity.CodeLayoutActivity" />
         <activity android:name=".activity.GraphActivity" />
         <activity android:name=".activity.SecondBezierActivity" />
-        <activity android:name=".activity.GraphChartActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
+        <activity android:name=".activity.GraphChartActivity" />
+        <activity android:name=".activity.ShowAllSensorsActivity" />
+        <activity android:name=".activity.CopyBitMapActivity" />
+        <activity android:name=".activity.LocationActivity"></activity>
     </application>
 
 </manifest>
