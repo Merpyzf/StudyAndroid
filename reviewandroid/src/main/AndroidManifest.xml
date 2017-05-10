@@ -13,8 +13,8 @@
     <uses-permission android:name="android.provider.Telephony.SMS_RECEIVED" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <!-- 授权程序访问振动器的权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -151,7 +151,11 @@
         <activity android:name=".activity.GraphChartActivity" />
         <activity android:name=".activity.ShowAllSensorsActivity" />
         <activity android:name=".activity.CopyBitMapActivity" />
-        <activity android:name=".activity.LocationActivity"></activity>
+        <activity android:name=".activity.LocationActivity" />
+        <activity android:name=".activity.SensorActivity" />
+        <activity android:name=".activity.GradienterActivity" />
+        <activity android:name=".activity.CanvasActivity" />
+        <activity android:name=".activity.ZoomImageActivity"></activity>
     </application>
 
 </manifest>

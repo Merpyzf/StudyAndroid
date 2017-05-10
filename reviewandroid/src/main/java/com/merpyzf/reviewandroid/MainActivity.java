@@ -40,6 +40,7 @@ import com.merpyzf.reviewandroid.activity.CopyBitMapActivity;
 import com.merpyzf.reviewandroid.activity.DouBanMovieActivity;
 import com.merpyzf.reviewandroid.activity.FrameByFrameActivity;
 import com.merpyzf.reviewandroid.activity.GestureDetectorActivity;
+import com.merpyzf.reviewandroid.activity.GradienterActivity;
 import com.merpyzf.reviewandroid.activity.GraphActivity;
 import com.merpyzf.reviewandroid.activity.ImplicitIntentActivity;
 import com.merpyzf.reviewandroid.activity.ItemSlidingListViewActivity;
@@ -55,6 +56,7 @@ import com.merpyzf.reviewandroid.activity.SQLiteActivity;
 import com.merpyzf.reviewandroid.activity.SaveImageActivity;
 import com.merpyzf.reviewandroid.activity.ScaleImageActivity;
 import com.merpyzf.reviewandroid.activity.ScrollActivity;
+import com.merpyzf.reviewandroid.activity.SensorActivity;
 import com.merpyzf.reviewandroid.activity.ShowAllSensorsActivity;
 import com.merpyzf.reviewandroid.activity.ShowChartActivity;
 import com.merpyzf.reviewandroid.activity.SmsReceiverActivity;
@@ -75,6 +77,7 @@ import com.merpyzf.reviewandroid.activity.UseValueAnimatorActivity;
 import com.merpyzf.reviewandroid.activity.VideoViewActivity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoop3Activity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoopActivity;
+import com.merpyzf.reviewandroid.activity.ZoomImageActivity;
 import com.merpyzf.reviewandroid.game.SnakeActivity;
 import com.merpyzf.reviewandroid.receiver.ScreenReceiver;
 import com.merpyzf.reviewandroid.receiver.Sms2Receiver;
@@ -107,67 +110,57 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Bind用于后台Notification的Service
-        Intent  intent = new Intent(this, NotificationService.class);
+        Intent intent = new Intent(this, NotificationService.class);
         mConn = new MyConn();
-        bindService(intent,mConn, Context.BIND_AUTO_CREATE);
+        bindService(intent, mConn, Context.BIND_AUTO_CREATE);
 
         /**
          * 设置当前Activity只能竖屏，而不能进行横竖屏切换
          */
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
-
         /*
             动态申请权限
          */
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)!= PackageManager.PERMISSION_GRANTED){
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
 
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.RECEIVE_SMS},0);
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECEIVE_SMS}, 0);
 
-        }else {
+        } else {
 
             //如果已经有接收短信的权限则动态注册短信到来的广播
 
             IntentFilter intentFilterSms = new IntentFilter();
             intentFilterSms.addAction("android.provider.Telephony.SMS_RECEIVED");
-            registerReceiver(new Sms2Receiver(),intentFilterSms);
+            registerReceiver(new Sms2Receiver(), intentFilterSms);
 
         }
-
-
 
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        switch (requestCode){
+        switch (requestCode) {
 
             case 0:
 
-                if(grantResults.length>0 && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
 
                     IntentFilter intentFilterSms = new IntentFilter();
                     intentFilterSms.addAction("android.provider.Telephony.SMS_RECEIVED");
-                    registerReceiver(new Sms2Receiver(),intentFilterSms);
+                    registerReceiver(new Sms2Receiver(), intentFilterSms);
 
-                }else {
+                } else {
 
-                    Toast.makeText(this,"权限被拒绝",Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(this, "权限被拒绝", Toast.LENGTH_SHORT).show();
 
 
                 }
 
-
                 break;
-
-
         }
-
-
 
     }
 
@@ -530,8 +523,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    public void clickDialog(View v){
+    public void clickDialog(View v) {
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -543,7 +535,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                Toast.makeText(MainActivity.this,"确定",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "确定", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -552,7 +544,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                Toast.makeText(MainActivity.this,"取消",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "取消", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -561,7 +553,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
-                Toast.makeText(MainActivity.this,"忽略",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "忽略", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -583,10 +575,6 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.show();
 
     }
-
-
-
-
 
 
     /**
@@ -661,7 +649,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void clickBaseWidget(View v){
+    public void clickBaseWidget(View v) {
 
 
         Intent intent = new Intent(this, StudyBaseWidgetActivity.class);
@@ -672,38 +660,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    public void clickFrameByFrame(View v){
-
+    public void clickFrameByFrame(View v) {
 
 
         startActivity(new Intent(this, FrameByFrameActivity.class));
 
 
-
-
     }
 
 
-    public void clickRxJava(View v){
+    public void clickRxJava(View v) {
 
         startActivity(new Intent(this, StudyRxJavaActivity.class));
 
     }
 
 
-
-    public void clickViewDragHelpe(View v){
+    public void clickViewDragHelpe(View v) {
 
 
         startActivity(new Intent(this, ItemSlidingListViewActivity.class));
 
 
-
     }
 
 
-    public void clickScroll(View v){
+    public void clickScroll(View v) {
 
         startActivity(new Intent(this, ScrollActivity.class));
 
@@ -711,23 +693,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    public void clickCustomView(View v){
+    public void clickCustomView(View v) {
 
         startActivity(new Intent(this, CustomViewActivity.class));
-
 
 
     }
 
 
-    public void clickStudyService(View v){
+    public void clickStudyService(View v) {
 
         startActivity(new Intent(this, StudyServiceActivity.class));
 
     }
 
-    public void clickVideoView(View v){
+    public void clickVideoView(View v) {
 
         startActivity(new Intent(this, VideoViewActivity.class));
 
@@ -736,20 +716,20 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 录音使用学习
+     *
      * @param v
      */
-    public void clickMediaRecorder(View v){
-
-
+    public void clickMediaRecorder(View v) {
 
 
     }
 
     /**
      * 绘制折线图
+     *
      * @param v
      */
-    public void clickLineChartView(View v){
+    public void clickLineChartView(View v) {
 
 
         startActivity(new Intent(this, ShowChartActivity.class));
@@ -758,9 +738,10 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 测试截取当前屏幕
+     *
      * @param v
      */
-    public void clickCaptureScreen(View v){
+    public void clickCaptureScreen(View v) {
 
         startActivity(new Intent(this, CaptureScreenActivity.class));
 
@@ -769,12 +750,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Gson的使用
+     *
      * @param v
      */
-    public void clickGson(View v){
+    public void clickGson(View v) {
 
 
-        startActivity(new Intent(this,StudyGsonActivity.class));
+        startActivity(new Intent(this, StudyGsonActivity.class));
 
 
     }
@@ -782,13 +764,13 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 在Activity中调用Service中的Notification
+     *
      * @param v
      */
-    public void clickNotification(View v){
+    public void clickNotification(View v) {
 
 
-
-        if(bindler!=null) {
+        if (bindler != null) {
 
             bindler.callNotification();
         }
@@ -796,11 +778,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void clickFile(View v){
+    public void clickFile(View v) {
 
 
         startActivity(new Intent(this, StudyFileActivity.class));
-
 
 
     }
@@ -808,19 +789,17 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 长按ImageView进行图片保存+截取当前手机的屏幕
+     *
      * @param v
      */
-    public void clickSaveImage(View v){
+    public void clickSaveImage(View v) {
 
         startActivity(new Intent(this, SaveImageActivity.class));
 
     }
 
 
-
-
-
-    public void clickCodeLayout(View v){
+    public void clickCodeLayout(View v) {
 
 
         startActivity(new Intent(this, CodeLayoutActivity.class));
@@ -828,48 +807,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void clickGraph(View v){
+    public void clickGraph(View v) {
 
         startActivity(new Intent(this, GraphActivity.class));
 
-        WindowManager wm = (WindowManager)getSystemService(WINDOW_SERVICE);
+        WindowManager wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         int screenWidth = wm.getDefaultDisplay().getWidth();
         int screenHeight = wm.getDefaultDisplay().getHeight();
-        Log.i("wk","屏幕的宽度:"+screenWidth+"屏幕的高度:"+screenHeight);
+        Log.i("wk", "屏幕的宽度:" + screenWidth + "屏幕的高度:" + screenHeight);
 
-
-    }
-
-
-    public void clickAllSensor(View v){
-
-        startActivity(new Intent(this, ShowAllSensorsActivity.class));
 
     }
 
     /**
      * 获取图片的尺寸
+     *
      * @param v
      */
-    public void clickBitMapSize(View v){
+    public void clickBitMapSize(View v) {
 
         BitmapFactory.Options options = new BitmapFactory.Options();
-        BitmapFactory.decodeResource(getResources(),R.drawable.ico,options);
+        BitmapFactory.decodeResource(getResources(), R.drawable.ico, options);
 
         //获取图片的宽高
         int height = options.outHeight;
         int width = options.outWidth;
 
-        Log.i("wk","图片的宽度:"+width+"图片的高度:"+height);
+        Log.i("wk", "图片的宽度:" + width + "图片的高度:" + height);
 
 
     }
 
     /**
      * 拷贝原图的副本
+     *
      * @param v
      */
-    public void clickCopyBitMap(View v){
+    public void clickCopyBitMap(View v) {
 
 
         startActivity(new Intent(this, CopyBitMapActivity.class));
@@ -879,14 +853,56 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 定位api的使用
+     *
      * @param v
      */
-    public void clickLocation(View v){
+    public void clickLocation(View v) {
 
         startActivity(new Intent(this, LocationActivity.class));
 
     }
 
+
+    public void clickAllSensor(View v) {
+
+        startActivity(new Intent(this, ShowAllSensorsActivity.class));
+
+    }
+
+
+    public void clickSensor(View v) {
+
+        startActivity(new Intent(this, SensorActivity.class));
+
+
+    }
+
+    public void clickGradienter(View v) {
+
+
+        startActivity(new Intent(this, GradienterActivity.class));
+
+    }
+
+
+    public void clickCanvas(View v){
+
+
+
+    }
+
+
+
+
+
+    public void clickZoomImage(View v){
+
+
+        startActivity(new Intent(this, ZoomImageActivity.class));
+
+
+
+    }
 
 
 
@@ -911,15 +927,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     //用于创建菜单
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
 
-        getMenuInflater().inflate(R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
 
         return true;
     }
@@ -929,11 +942,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
 
             case R.id.action_1:
 
-                Toast.makeText(this,"菜单被点击了!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "菜单被点击了!", Toast.LENGTH_SHORT).show();
 
                 break;
 
@@ -942,11 +955,6 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     }
-
-
-
-
-
 
 
     @Override
