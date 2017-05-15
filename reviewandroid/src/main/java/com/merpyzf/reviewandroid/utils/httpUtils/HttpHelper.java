@@ -4,6 +4,8 @@ import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -75,6 +77,60 @@ public class HttpHelper {
 
         return responseHtmlDoc;
 
+    }
+
+
+    public static String httpPost(String url,String params){
+
+
+        try {
+            URL mUrl = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) mUrl.openConnection();
+
+            connection.setRequestMethod("POST");
+            connection.setConnectTimeout(1000*5);
+            connection.setReadTimeout(1000*5);
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setUseCaches(false);
+            connection.setRequestProperty("Content-type","application/json");
+
+            OutputStream outputStream = connection.getOutputStream();
+
+
+            OutputStreamWriter osw = new OutputStreamWriter(outputStream);
+
+            osw.write(params);
+
+            osw.close();
+
+
+            int responseCode = connection.getResponseCode();
+
+            if(responseCode == 200){
+
+                InputStream is = connection.getInputStream();
+
+                String responseJson = IoUtil.stream2Str(is);
+
+                return responseJson;
+
+            }else if(responseCode == 404){
+
+                Log.i("wk","404错误");
+
+            }
+
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return null;
     }
 
 

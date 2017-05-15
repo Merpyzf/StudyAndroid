@@ -37,6 +37,7 @@ import com.merpyzf.reviewandroid.activity.CaptureScreenActivity;
 import com.merpyzf.reviewandroid.activity.CodeLayoutActivity;
 import com.merpyzf.reviewandroid.activity.ContentObserverActivity;
 import com.merpyzf.reviewandroid.activity.CopyBitMapActivity;
+import com.merpyzf.reviewandroid.activity.DatePickerDialogActivity;
 import com.merpyzf.reviewandroid.activity.DouBanMovieActivity;
 import com.merpyzf.reviewandroid.activity.FrameByFrameActivity;
 import com.merpyzf.reviewandroid.activity.GestureDetectorActivity;
@@ -45,6 +46,12 @@ import com.merpyzf.reviewandroid.activity.GraphActivity;
 import com.merpyzf.reviewandroid.activity.ImplicitIntentActivity;
 import com.merpyzf.reviewandroid.activity.ItemSlidingListViewActivity;
 import com.merpyzf.reviewandroid.activity.LocationActivity;
+import com.merpyzf.reviewandroid.activity.MpChart01Activity;
+import com.merpyzf.reviewandroid.activity.MpChart02Activity;
+import com.merpyzf.reviewandroid.activity.MpChart03Activity;
+import com.merpyzf.reviewandroid.activity.MpChart04Activity;
+import com.merpyzf.reviewandroid.activity.MpChart05Activity;
+import com.merpyzf.reviewandroid.activity.MpChartActivity;
 import com.merpyzf.reviewandroid.activity.ObserverSmsActivity;
 import com.merpyzf.reviewandroid.activity.OnTouchActivity;
 import com.merpyzf.reviewandroid.activity.OpenCamearActivity;
@@ -78,10 +85,12 @@ import com.merpyzf.reviewandroid.activity.VideoViewActivity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoop3Activity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoopActivity;
 import com.merpyzf.reviewandroid.activity.ZoomImageActivity;
+import com.merpyzf.reviewandroid.domian.Common;
 import com.merpyzf.reviewandroid.game.SnakeActivity;
 import com.merpyzf.reviewandroid.receiver.ScreenReceiver;
 import com.merpyzf.reviewandroid.receiver.Sms2Receiver;
 import com.merpyzf.reviewandroid.service.NotificationService;
+import com.merpyzf.reviewandroid.utils.httpUtils.HttpRequest;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ll_content = (LinearLayout) findViewById(R.id.ll_content);
 
 
         //对于一些频繁触发的事件，需要在代码中进行动态注册
@@ -889,11 +897,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+        new HttpRequest(Common.url1, Common.params14) {
+            @Override
+            public void getResponse(String htmlDoc) {
+
+                Log.i("wk","返回json:"+htmlDoc);
+
+            }
+        };
+
+
     }
-
-
-
-
 
     public void clickZoomImage(View v){
 
@@ -903,6 +920,59 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+    public void clickDatePickerDialog(View v){
+
+
+        startActivity(new Intent(this, DatePickerDialogActivity.class));
+
+
+
+    }
+
+
+    public void clickMpChartStudy(View v){
+
+
+        startActivity(new Intent(this, MpChartActivity.class));
+
+
+    }
+
+
+    public void clickMpChartStudy01(View v){
+
+        startActivity(new Intent(this, MpChart01Activity.class));
+
+    }
+
+
+    public void clickMpChartStudy02(View v){
+
+        startActivity(new Intent(this, MpChart02Activity.class));
+    }
+
+    public void clickMpChartStudy03(View v){
+
+        startActivity(new Intent(this, MpChart03Activity.class));
+    }
+
+    public void clickMpChartStudy04(View v){
+
+        startActivity(new Intent(this, MpChart04Activity.class));
+    }
+
+    public void clickMpChartStudy05(View v){
+
+        startActivity(new Intent(this, MpChart05Activity.class));
+    }
+
+
+
+
+
+
+
 
 
 

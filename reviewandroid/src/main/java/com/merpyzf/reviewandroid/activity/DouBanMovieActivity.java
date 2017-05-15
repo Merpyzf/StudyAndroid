@@ -8,7 +8,6 @@ import com.merpyzf.reviewandroid.R;
 import com.merpyzf.reviewandroid.adapter.MovieListViewAdapter;
 import com.merpyzf.reviewandroid.customui.PagingListView;
 import com.merpyzf.reviewandroid.domian.MovieBean;
-import com.merpyzf.reviewandroid.utils.httpUtils.HttpRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,7 +56,7 @@ public class DouBanMovieActivity extends AppCompatActivity {
             public void onLoading() {
 
 
-                Log.i("wk","https://api.douban.com/v2/movie/top250?start="+(page*count)+"&count="+count);
+            /*    Log.i("wk","https://api.douban.com/v2/movie/top250?start="+(page*count)+"&count="+count);
 
                 new HttpRequest("https://api.douban.com/v2/movie/top250?start="+(page*count)+"+&count="+count) {
                     @Override
@@ -66,9 +65,9 @@ public class DouBanMovieActivity extends AppCompatActivity {
 
                         parseJson(htmlDoc);
 
-                        /*
+                        *//*
                             使用下面方法更新ListView的数据时，必须保证传入Adapter的数据集合是同一个而不能是其他对象，否则无法实现数据的更新
-                         */
+                         *//*
                         adapter.notifyDataSetChanged();
                         listView_movie.setLoadingComplete();
 
@@ -82,7 +81,7 @@ public class DouBanMovieActivity extends AppCompatActivity {
 
 
                     }
-                };
+                };*/
 
                 page++;
 

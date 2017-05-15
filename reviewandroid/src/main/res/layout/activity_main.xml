@@ -596,19 +596,10 @@
             android:textSize="20sp"
             android:textAllCaps="false"
             android:onClick="clickCanvas"
-            android:text="Canvas"
+            android:text="接口测试"
 
             />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAllCaps="false"
-            android:onClick="clickCanvas"
-            android:text="Canvas"
-
-            />
 
 
         <Button
@@ -621,11 +612,82 @@
 
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickDatePickerDialog"
+            android:text="DatePickerDialog的使用"
+
+            />
 
 
 
 
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMpChartStudy"
+            android:text="MpChart图表工具的使用"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMpChartStudy01"
+            android:text="MpChart动态绘制折线图"
+
+            />
+
+
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMpChartStudy02"
+            android:text="MpChart使用02"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMpChartStudy03"
+            android:text="MpChart使用03"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMpChartStudy04"
+            android:text="MpChart使用04"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMpChartStudy05"
+            android:text="MpChart使用05"
+
+            />
 
 
 

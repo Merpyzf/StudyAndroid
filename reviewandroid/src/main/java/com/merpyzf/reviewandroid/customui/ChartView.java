@@ -78,6 +78,8 @@ public class ChartView extends View {
 
     public ChartView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+
+
         Init();
     }
 

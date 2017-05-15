@@ -13,6 +13,7 @@ import android.os.Message;
 public abstract class HttpRequest {
 
     private String mUrl;
+    private String params;
     private Handler mHandler = new Handler(){
 
         @Override
@@ -25,9 +26,10 @@ public abstract class HttpRequest {
     };
 
 
-    public HttpRequest(String Url){
+    public HttpRequest(String Url,String params){
 
         this.mUrl = Url;
+        this.params = params;
 
         getRequest();
 
@@ -42,7 +44,7 @@ public abstract class HttpRequest {
             public void run() {
 
 
-                String htmlDoc = HttpHelper.httpGet(mUrl);
+                String htmlDoc = HttpHelper.httpPost(mUrl,params);
 
                 Message msg = new Message();
 

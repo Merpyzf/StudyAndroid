@@ -155,7 +155,14 @@
         <activity android:name=".activity.SensorActivity" />
         <activity android:name=".activity.GradienterActivity" />
         <activity android:name=".activity.CanvasActivity" />
-        <activity android:name=".activity.ZoomImageActivity"></activity>
+        <activity android:name=".activity.ZoomImageActivity" />
+        <activity android:name=".activity.DatePickerDialogActivity" />
+        <activity android:name=".activity.MpChartActivity" />
+        <activity android:name=".activity.MpChart01Activity" />
+        <activity android:name=".activity.MpChart02Activity" />
+        <activity android:name=".activity.MpChart03Activity" />
+        <activity android:name=".activity.MpChart04Activity" />
+        <activity android:name=".activity.MpChart05Activity"></activity>
     </application>
 
 </manifest>
