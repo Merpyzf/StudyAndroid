@@ -11,7 +11,10 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -101,11 +104,27 @@ public class MainActivity extends AppCompatActivity {
     private NotificationService.MyBindler bindler;
     private Intent intent;
     private MyConn mConn;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /**
+         *
+         * AndroidStudio DeBug的使用学习
+         *
+         */
+
+
+        for (int i = 0; i < 10; i++) {
+            //获取当前i的值
+            int selector = i;
+            //打log查看当前i的值（此步多余，实际开发请忽略）
+            Log.i("wk","for当前的i的值：" + i);
+            //调用方法
+            stepNext(i);
+        }
 
 
         //对于一些频繁触发的事件，需要在代码中进行动态注册
@@ -121,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NotificationService.class);
         mConn = new MyConn();
         bindService(intent, mConn, Context.BIND_AUTO_CREATE);
+
 
         /**
          * 设置当前Activity只能竖屏，而不能进行横竖屏切换
@@ -144,7 +164,61 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+
+        TestLooperThread testLooperThread = new TestLooperThread();
+
+        testLooperThread.start();
+
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        testLooperThread.mHandler.sendEmptyMessage(1);
+
+
+
+
     }
+
+    private void stepNext(int i) {
+
+        Log.i("wk","方法中接收的值==》"+i);
+    }
+
+
+    /**
+     *
+     * 测试从主线程传递消息到子线程，Handler消息传递机制的学习
+     *
+     */
+    class TestLooperThread extends Thread{
+
+        Handler mHandler;
+
+
+        @Override
+        public void run() {
+            super.run();
+
+            Looper.prepare(); //此处只是创建了一个loop
+            mHandler = new Handler(){
+
+                @Override
+                public void handleMessage(Message msg) {
+                    super.handleMessage(msg);
+
+                    Log.i("wk","收到主线程发来的消息了");
+                }
+            };
+
+            Looper.loop(); //从当前的sThreadLocal取出looper对象
+
+
+        }
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

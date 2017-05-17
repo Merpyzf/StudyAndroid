@@ -89,7 +89,7 @@ public class MpChart05Activity extends Activity {
         float f = (float) ((Math.random()) * 20 + 50);
 
 
-        Entry entry = new Entry(count++, f);
+        Entry entry = new Entry(count, f);
 
 
         data.addEntry(entry, 0);
@@ -104,6 +104,8 @@ public class MpChart05Activity extends Activity {
 
          mChart.moveViewToX(set.getEntryForIndex(set.getEntryCount()-1).getX());
 
+
+        count++;
 
     }
 

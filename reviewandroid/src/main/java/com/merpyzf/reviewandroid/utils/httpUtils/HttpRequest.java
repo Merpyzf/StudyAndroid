@@ -4,17 +4,16 @@ import android.os.Handler;
 import android.os.Message;
 
 /**
- *
  * 进行Http请求的对象
- * @author wangke
  *
+ * @author wangke
  */
 
 public abstract class HttpRequest {
 
     private String mUrl;
     private String params;
-    private Handler mHandler = new Handler(){
+    private Handler mHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
@@ -26,7 +25,7 @@ public abstract class HttpRequest {
     };
 
 
-    public HttpRequest(String Url,String params){
+    public HttpRequest(String Url, String params) {
 
         this.mUrl = Url;
         this.params = params;
@@ -36,7 +35,7 @@ public abstract class HttpRequest {
 
     }
 
-    public void getRequest(){
+    public void getRequest() {
 
 
         new Thread(new Runnable() {
@@ -44,9 +43,9 @@ public abstract class HttpRequest {
             public void run() {
 
 
-                String htmlDoc = HttpHelper.httpPost(mUrl,params);
+                String htmlDoc = HttpHelper.httpPost(mUrl, params);
 
-                Message msg = new Message();
+                Message msg = mHandler.obtainMessage();
 
                 msg.obj = htmlDoc;
 
@@ -58,7 +57,7 @@ public abstract class HttpRequest {
     }
 
 
-    public  abstract void getResponse(String htmlDoc);
+    public abstract void getResponse(String htmlDoc);
 
 
 }
