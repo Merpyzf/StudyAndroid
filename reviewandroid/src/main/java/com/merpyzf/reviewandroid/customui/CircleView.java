@@ -7,7 +7,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.widget.Scroller;
 
 import com.merpyzf.reviewandroid.R;
 
@@ -24,7 +26,7 @@ import com.merpyzf.reviewandroid.R;
 public class CircleView extends View{
     private Paint mPaint = null;
     private int color;
-
+    private Scroller mScrollr;
 
 
     public CircleView(Context context) {
@@ -60,6 +62,35 @@ public class CircleView extends View{
         //设置画笔抗锯齿
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(color);
+
+        mScrollr = new Scroller(getContext());
+
+        int scrollX = getScrollX();
+
+        Log.i("wk","scrollX==>"+scrollX);
+
+        int deltaX = 100-scrollX;
+
+        mScrollr.startScroll(scrollX,0,-200,0,3000);
+
+        invalidate();
+
+
+
+
+    }
+
+
+    @Override
+    public void computeScroll() {
+
+        if(mScrollr.computeScrollOffset()){
+
+            scrollTo(mScrollr.getCurrX(),mScrollr.getCurrY());
+
+            postInvalidate();
+        }
+
 
     }
 
@@ -129,6 +160,7 @@ public class CircleView extends View{
 
     }
 
+
     private int measureWidth(int widthMeasureSpec) {
 
         int result = 0;
@@ -160,4 +192,7 @@ public class CircleView extends View{
         return result;
 
     }
+
+
+
 }

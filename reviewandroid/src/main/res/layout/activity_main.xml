@@ -622,8 +622,25 @@
 
             />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickStudySqlite"
+            android:text="Sqlite数据库的常用操作"
 
+            />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickStudyView"
+            android:text="view的事件体系"
+
+            />
 
 
         <Button
@@ -688,6 +705,8 @@
             android:text="MpChart使用05"
 
             />
+
+
 
 
 

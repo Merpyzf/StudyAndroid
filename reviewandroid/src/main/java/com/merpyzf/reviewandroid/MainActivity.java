@@ -77,7 +77,9 @@ import com.merpyzf.reviewandroid.activity.StudyFragmentActivity;
 import com.merpyzf.reviewandroid.activity.StudyGsonActivity;
 import com.merpyzf.reviewandroid.activity.StudyRxJavaActivity;
 import com.merpyzf.reviewandroid.activity.StudyServiceActivity;
+import com.merpyzf.reviewandroid.activity.StudySqliteActivity;
 import com.merpyzf.reviewandroid.activity.StudyUiActivity;
+import com.merpyzf.reviewandroid.activity.StudyViewActivity;
 import com.merpyzf.reviewandroid.activity.Test2ViewPagerLoopActivity;
 import com.merpyzf.reviewandroid.activity.TestContentProviderActivity;
 import com.merpyzf.reviewandroid.activity.TestSqlActivity;
@@ -1003,6 +1005,24 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+    public void clickStudySqlite(View v){
+
+
+        startActivity(new Intent(this, StudySqliteActivity.class));
+
+    }
+
+
+
+    public void clickStudyView(View v){
+
+        startActivity(new Intent(this, StudyViewActivity.class));
+
+    }
+
+
 
 
     public void clickMpChartStudy(View v){

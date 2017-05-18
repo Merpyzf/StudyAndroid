@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.merpyzf.reviewandroid.R;
-import com.merpyzf.reviewandroid.utils.SQLiteHelper1;
+import com.merpyzf.reviewandroid.utils.DBHelper;
 
 /**
  *sql语句练习
@@ -31,7 +31,7 @@ public class TestSqlActivity extends AppCompatActivity {
         //用于创建表结构的sql语句
         String sql = "create table tab_book (_id integer not null primary key autoincrement,book_name varchar(100),book_author varchar(100),add_date timestamp)";
 
-        SQLiteHelper1 sqlHelper = new SQLiteHelper1(this, "book_db_1.db", sql);
+        DBHelper sqlHelper = new DBHelper(this, "book_db_1.db", sql);
 
         //数据操作对象
         dbWriter = sqlHelper.getWritableDatabase();

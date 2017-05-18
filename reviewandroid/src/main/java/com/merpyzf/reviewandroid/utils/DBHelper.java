@@ -10,13 +10,13 @@ import android.util.Log;
  *
  */
 
-public class SQLiteHelper1 extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper {
 
     //用于创建表的语句
     private String sqlCreateT;
 
-    public SQLiteHelper1(Context context,String dbName,String sqlCreateT) {
-        super(context, dbName, null, 1);
+    public DBHelper(Context context, String dbName, String sqlCreateT) {
+        super(context, dbName, null, 2);
         this.sqlCreateT = sqlCreateT;
     }
 
@@ -24,7 +24,7 @@ public class SQLiteHelper1 extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         sqLiteDatabase.execSQL(sqlCreateT);
-        Log.i("wk","t_book表被创建了");
+        Log.i("wk","表结构被创建了");
 
     }
 

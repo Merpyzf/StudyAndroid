@@ -10,8 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.merpyzf.reviewandroid.utils.SQLiteHelper1;
-
 /**
  *
  * 内容提供者部分的代码练习
@@ -53,7 +51,7 @@ public class MyBookContentProvider extends ContentProvider {
 
         //初始化数据库操作对象
 
-//        SQLiteHelper1 sqLiteHelper1 = new SQLiteHelper1(getContext());
+//        DBHelper sqLiteHelper1 = new DBHelper(getContext());
 //
 //        mDBWriter = sqLiteHelper1.getWritableDatabase();
 

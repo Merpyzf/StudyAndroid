@@ -162,7 +162,9 @@
         <activity android:name=".activity.MpChart02Activity" />
         <activity android:name=".activity.MpChart03Activity" />
         <activity android:name=".activity.MpChart04Activity" />
-        <activity android:name=".activity.MpChart05Activity"></activity>
+        <activity android:name=".activity.MpChart05Activity" />
+        <activity android:name=".activity.StudySqliteActivity" />
+        <activity android:name=".activity.StudyViewActivity"></activity>
     </application>
 
 </manifest>
