@@ -10,6 +10,7 @@ import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -290,6 +291,13 @@ public class ChartView extends View {
         }
 
 
+    }
+
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+
+        return super.dispatchTouchEvent(event);
     }
 
     /**

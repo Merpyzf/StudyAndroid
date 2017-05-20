@@ -24,6 +24,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
@@ -89,6 +90,7 @@ import com.merpyzf.reviewandroid.activity.UseValueAnimatorActivity;
 import com.merpyzf.reviewandroid.activity.VideoViewActivity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoop3Activity;
 import com.merpyzf.reviewandroid.activity.ViewPagerLoopActivity;
+import com.merpyzf.reviewandroid.activity.VolleyActivity;
 import com.merpyzf.reviewandroid.activity.ZoomImageActivity;
 import com.merpyzf.reviewandroid.domian.Common;
 import com.merpyzf.reviewandroid.game.SnakeActivity;
@@ -107,16 +109,22 @@ public class MainActivity extends AppCompatActivity {
     private Intent intent;
     private MyConn mConn;
     private Handler handler;
+    private TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         /**
          *
          * AndroidStudio DeBug的使用学习
          *
          */
+
+
+        int TouchSlop = ViewConfiguration.get(this).getScaledTouchSlop();
 
 
         for (int i = 0; i < 10; i++) {
@@ -1019,6 +1027,13 @@ public class MainActivity extends AppCompatActivity {
     public void clickStudyView(View v){
 
         startActivity(new Intent(this, StudyViewActivity.class));
+
+    }
+
+    public void clickVolley(View v){
+
+        startActivity(new Intent(this, VolleyActivity.class));
+
 
     }
 

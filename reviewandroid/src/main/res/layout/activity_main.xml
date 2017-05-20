@@ -648,6 +648,16 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAllCaps="false"
+            android:onClick="clickVolley"
+            android:text="Volley使用学习"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
             android:onClick="clickMpChartStudy"
             android:text="MpChart图表工具的使用"
 
@@ -705,6 +715,8 @@
             android:text="MpChart使用05"
 
             />
+
+
 
 
 

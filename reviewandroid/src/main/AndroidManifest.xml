@@ -164,7 +164,8 @@
         <activity android:name=".activity.MpChart04Activity" />
         <activity android:name=".activity.MpChart05Activity" />
         <activity android:name=".activity.StudySqliteActivity" />
-        <activity android:name=".activity.StudyViewActivity"></activity>
+        <activity android:name=".activity.StudyViewActivity" />
+        <activity android:name=".activity.VolleyActivity"></activity>
     </application>
 
 </manifest>
