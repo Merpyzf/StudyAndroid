@@ -653,6 +653,29 @@
 
             />
 
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickOkHttp"
+            android:text="OkHttp使用学习"
+
+            />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickRecordMedia"
+            android:text="录音"
+
+            />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -715,7 +738,15 @@
             android:text="MpChart使用05"
 
             />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:onClick="clickMpChartStudy06"
+            android:text="MpChart使用06"
 
+            />
 
 
 

@@ -55,14 +55,17 @@ import com.merpyzf.reviewandroid.activity.MpChart02Activity;
 import com.merpyzf.reviewandroid.activity.MpChart03Activity;
 import com.merpyzf.reviewandroid.activity.MpChart04Activity;
 import com.merpyzf.reviewandroid.activity.MpChart05Activity;
+import com.merpyzf.reviewandroid.activity.MpChart06Activity;
 import com.merpyzf.reviewandroid.activity.MpChartActivity;
 import com.merpyzf.reviewandroid.activity.ObserverSmsActivity;
+import com.merpyzf.reviewandroid.activity.OkHttpActivity;
 import com.merpyzf.reviewandroid.activity.OnTouchActivity;
 import com.merpyzf.reviewandroid.activity.OpenCamearActivity;
 import com.merpyzf.reviewandroid.activity.PhotoAlbumActivity;
 import com.merpyzf.reviewandroid.activity.PropertyAnimationActivity;
 import com.merpyzf.reviewandroid.activity.ReadContactsActivity;
 import com.merpyzf.reviewandroid.activity.ReadSmsActivity;
+import com.merpyzf.reviewandroid.activity.RecordMediaActivity;
 import com.merpyzf.reviewandroid.activity.SQLiteActivity;
 import com.merpyzf.reviewandroid.activity.SaveImageActivity;
 import com.merpyzf.reviewandroid.activity.ScaleImageActivity;
@@ -1038,6 +1041,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void clickRecordMedia(View v){
+
+
+        startActivity(new Intent(this, RecordMediaActivity.class));
+
+    }
+
+
+
 
 
     public void clickMpChartStudy(View v){
@@ -1076,6 +1088,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, MpChart05Activity.class));
     }
 
+
+    public void clickMpChartStudy06(View v){
+
+        startActivity(new Intent(this, MpChart06Activity.class));
+
+    }
+
+
+
+
+    public void clickOkHttp(View v){
+
+        startActivity(new Intent(this, OkHttpActivity.class));
+
+    }
 
 
 

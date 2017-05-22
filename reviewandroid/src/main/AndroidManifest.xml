@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <!-- 授权程序访问振动器的权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -165,7 +166,11 @@
         <activity android:name=".activity.MpChart05Activity" />
         <activity android:name=".activity.StudySqliteActivity" />
         <activity android:name=".activity.StudyViewActivity" />
-        <activity android:name=".activity.VolleyActivity"></activity>
+        <activity android:name=".activity.VolleyActivity" />
+        <activity android:name=".activity.KotlinActivity" />
+        <activity android:name=".activity.OkHttpActivity" />
+        <activity android:name=".activity.MpChart06Activity" />
+        <activity android:name=".activity.RecordMediaActivity"></activity>
     </application>
 
 </manifest>
