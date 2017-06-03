@@ -13,5 +13,11 @@
         android:padding="40dp"
         app:circle_color="@color/colorAccent"
         android:layout_height="wrap_content" />
+    
+    
+    <com.merpyzf.reviewandroid.customui.BarView
+        android:id="@+id/bar_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"></com.merpyzf.reviewandroid.customui.BarView>
 
 </LinearLayout>

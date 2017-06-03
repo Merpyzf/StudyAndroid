@@ -44,6 +44,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    compile files('src/main/libs/ormlite-android-5.0.jar')
+    compile files('src/main/libs/ormlite-core-5.0.jar')
 }
 repositories {
     mavenCentral()

@@ -1,5 +1,6 @@
 package com.merpyzf.reviewandroid.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -50,6 +51,8 @@ public class MpChart02Activity extends AppCompatActivity {
 
         //3.将entries设置给LineDataSet数据集
         LineDataSet dataSet = new LineDataSet(entries, "Label");
+
+        dataSet.setFillColor(Color.RED);
 
         //4.将上面创建的LineDataSet对象设置给LineData
         LineData lineData = new LineData(dataSet);

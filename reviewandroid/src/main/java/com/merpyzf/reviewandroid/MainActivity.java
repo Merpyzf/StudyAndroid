@@ -61,6 +61,7 @@ import com.merpyzf.reviewandroid.activity.ObserverSmsActivity;
 import com.merpyzf.reviewandroid.activity.OkHttpActivity;
 import com.merpyzf.reviewandroid.activity.OnTouchActivity;
 import com.merpyzf.reviewandroid.activity.OpenCamearActivity;
+import com.merpyzf.reviewandroid.activity.OrmLiteActivity;
 import com.merpyzf.reviewandroid.activity.PhotoAlbumActivity;
 import com.merpyzf.reviewandroid.activity.PropertyAnimationActivity;
 import com.merpyzf.reviewandroid.activity.ReadContactsActivity;
@@ -101,6 +102,9 @@ import com.merpyzf.reviewandroid.receiver.ScreenReceiver;
 import com.merpyzf.reviewandroid.receiver.Sms2Receiver;
 import com.merpyzf.reviewandroid.service.NotificationService;
 import com.merpyzf.reviewandroid.utils.httpUtils.HttpRequest;
+
+import java.util.Calendar;
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -159,6 +163,11 @@ public class MainActivity extends AppCompatActivity {
          * 设置当前Activity只能竖屏，而不能进行横竖屏切换
          */
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
+
+
+
 
         /*
             动态申请权限
@@ -226,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
 
-            Looper.loop(); //从当前的sThreadLocal取出looper对象
+            Looper.loop(); //从当前的sThreadLocal取出looper对象,然后对消息进行无限轮询
 
 
         }
@@ -1096,14 +1105,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     public void clickOkHttp(View v){
 
         startActivity(new Intent(this, OkHttpActivity.class));
 
     }
 
+    public void clickOrmLite(View v){
+
+
+        startActivity(new Intent(this, OrmLiteActivity.class));
+
+        Timer timer = new Timer();
+        Calendar calendar = Calendar.getInstance();
+
+
+
+
+      /*  NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, new Intent(this, MpChart06Activity.class), 0);
+
+        builder.setContentTitle("这是一个标题")
+                .setContentText("这是一个内容")
+                .setAutoCancel(true)
+                .setSmallIcon(R.drawable.ico)
+                .setContentIntent(pendingIntent);
+
+        notificationManager.notify(0,builder.build());
+*/
+
+
+
+    }
 
 
 

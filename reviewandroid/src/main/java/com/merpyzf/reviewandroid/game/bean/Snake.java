@@ -65,7 +65,7 @@ public class Snake {
     //添加一个小蛇
     public void addSnake(Point point) {
 
-        snakeList.add(point);
+        snakeList.add(0,point);
 
     }
 
@@ -123,7 +123,7 @@ public class Snake {
 
             }
 
-        }, 0, 1000);
+        }, 0, 100);
 
     }
 

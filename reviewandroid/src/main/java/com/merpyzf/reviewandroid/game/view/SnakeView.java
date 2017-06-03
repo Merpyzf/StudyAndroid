@@ -68,7 +68,7 @@ public class SnakeView extends View {
                 handler.postDelayed(this,10);
 
             }
-        },500);
+        },100);
 
 
 

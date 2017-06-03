@@ -28,42 +28,46 @@ public class SmsReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
+        String action = intent.getAction();
 
-        String action =  intent.getAction();
 
-       if(action.equals("android.provider.Telephony.SMS_RECEIVED")) {
+        if(action.equals("android.provider.Telephony.SMS_RECEIVED")) {
 
-           //获取短信内容,有可能一次发来多条短信
-           Object[] objects = (Object[]) intent.getExtras().get("pdus");
+            //获取短信内容,有可能一次发来多条短信
+            Object[] objects = (Object[]) intent.getExtras().get("pdus");
 
-           for (Object obj : objects) {
+            for (Object obj : objects) {
 
-               //获取短信对象
-               SmsMessage msg = SmsMessage.createFromPdu((byte[]) obj);
-                //获取短信内容
-               String msgBody = msg.getDisplayMessageBody();
+                //获取短信对象
+                SmsMessage msg =                //获取短信内容
+                        SmsMessage.createFromPdu((byte[]) obj);
+                String msgBody = msg.getDisplayMessageBody();
                 //获取发信人的电话号码
-               String originatingAddress = msg.getOriginatingAddress();
+                String originatingAddress = msg.getOriginatingAddress();
 
-               Log.i("wk","短信内容==>"+msgBody+" 来自==>"+originatingAddress);
+                Log.i("wk","短信内容==>"+msgBody+" 来自==>"+originatingAddress);
 
 
-               Pattern pattern = Pattern.compile("验证码:(\\d+)");
+                Pattern pattern = Pattern.compile("验证码:(\\d+)");
 
-               Matcher matcher = pattern.matcher(msgBody);
+                Matcher matcher = pattern.matcher(msgBody);
 
-               if (matcher.find()) {
+                if (matcher.find()) {
 
-                   editText.setText(matcher.group(1));
+                    editText.setText(matcher.group(1));
 
-               } else {
+                } else {
 
-                   editText.setText(msgBody);
-               }
+                    editText.setText(msgBody);
+                }
 
-           }
+            }
 
-       }
+        }
+
+
+
+
 
 
     }

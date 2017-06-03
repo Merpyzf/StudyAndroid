@@ -18,11 +18,9 @@ import com.merpyzf.reviewandroid.R;
 import java.io.IOException;
 
 /**
- *
  * 从相册中选择一张图片
- *
+ * <p>
  * 注:只能从图库中选择
- *
  */
 public class PhotoAlbumActivity extends AppCompatActivity {
 
@@ -38,12 +36,12 @@ public class PhotoAlbumActivity extends AppCompatActivity {
     }
 
 
-    public void clickPhoto(View view){
+    public void clickPhoto(View view) {
 
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent,REQUEST_CODE);
+        startActivityForResult(intent, REQUEST_CODE);
 
     }
 
@@ -51,23 +49,23 @@ public class PhotoAlbumActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-        if(resultCode == RESULT_OK){
+        if (resultCode == RESULT_OK) {
 
             Bitmap bitmap = null;
 
-            if(requestCode == REQUEST_CODE){
+            if (requestCode == REQUEST_CODE) {
                 try {
-                ContentResolver resolver = getContentResolver();
+                    ContentResolver resolver = getContentResolver();
 
-                Uri uri = data.getData();
+                    Uri uri = data.getData();
 
 
-                    bitmap = MediaStore.Images.Media.getBitmap(resolver,uri);
+                    bitmap = MediaStore.Images.Media.getBitmap(resolver, uri);
 
                     //将从图库中选择的图片显示在imageview
                     imageView.setImageBitmap(bitmap);
 
-                     String [] proj = {MediaStore.Images.Media.DATA};
+                    String[] proj = {MediaStore.Images.Media.DATA};
 
                     //安卓多媒体封装接口
                     Cursor cursor = managedQuery(uri, proj, null, null, null);
@@ -80,7 +78,7 @@ public class PhotoAlbumActivity extends AppCompatActivity {
                     String path = cursor.getString(column_index);
 
 
-                    Toast.makeText(PhotoAlbumActivity.this,"所选图片的路径:"+path,Toast.LENGTH_LONG).show();
+                    Toast.makeText(PhotoAlbumActivity.this, "所选图片的路径:" + path, Toast.LENGTH_LONG).show();
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -91,16 +89,10 @@ public class PhotoAlbumActivity extends AppCompatActivity {
             }
 
 
-
-
         }
 
 
-
-
-
     }
-
 
 
 }
